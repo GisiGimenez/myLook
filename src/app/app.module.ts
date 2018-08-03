@@ -36,7 +36,8 @@ import { MatDialogModule } from '@angular/material';
 import { DialogAlertComponent } from './dialog/dialog-alert/dialog-alert.component';
 import { UpLoadArticleComponent } from './articles/components/dialogs/uploadArticle';
 import { SuccesfulDialogComponent } from './dialog/succesful-dialog/succesful-dialog.component';
-
+import { MapsComponent } from './maps/maps.component';
+import { AgmCoreModule } from '../../node_modules/@agm/core'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { SuccesfulDialogComponent } from './dialog/succesful-dialog/succesful-di
     SignupComponent,
     DialogAlertComponent,
     UpLoadArticleComponent,
-    SuccesfulDialogComponent
+    SuccesfulDialogComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,10 @@ import { SuccesfulDialogComponent } from './dialog/succesful-dialog/succesful-di
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+    })
   ],
   exports: [RouterModule],
   providers: [AuthService, UserService, UserResolver, AuthGuard, StoreService],
